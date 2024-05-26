@@ -3,20 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/inicio2">
+    app:startDestination="@id/SplashFragment">
 
 
     <fragment
-        android:id="@+id/inicio2"
-        android:name="pena.camila.alkewalletm5.view.Inicio"
-        android:label="fragment_inicio"
-        tools:layout="@layout/fragment_inicio" >
+        android:id="@+id/SplashFragment"
+        android:name="pena.camila.alkewalletm5.view.SplashFragment"
+        android:label="Splash Fragment"
+        tools:layout="@layout/fragment_splash">
         <action
-            android:id="@+id/action_inicio2_to_loginPage"
-            app:destination="@id/loginPage" />
-        <action
-            android:id="@+id/action_inicio2_to_signupPage"
-            app:destination="@id/signupPage" />
+            android:id="@+id/action_SplashFragment_to_inicio3"
+            app:destination="@id/inicio3" />
     </fragment>
     <fragment
         android:id="@+id/loginPage"
@@ -74,4 +71,16 @@
         android:id="@+id/profile"
         android:name="pena.camila.alkewalletm5.view.Profile"
         android:label="Profile" />
+    <fragment
+        android:id="@+id/inicio3"
+        android:name="pena.camila.alkewalletm5.view.Inicio"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicio3_to_loginPage"
+            app:destination="@id/loginPage" />
+        <action
+            android:id="@+id/action_inicio3_to_signupPage"
+            app:destination="@id/signupPage" />
+    </fragment>
 </navigation>
