@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Alke Wallet</string>
+    <string name="texto_bienvenida">El lugar más seguro para tu dinero</string>
+    <string name="btn_crear_cuenta">Crear cuenta nueva</string>
+    <string name="txt_ya_tienes_cuenta">Ya tienes cuenta</string>
+    <string name="title_login_page">¡Logea y empeza a tranferir!</string>
+    <string name="ingresa_tu_email">Ingresa tu email</string>
+    <string name="Email">Email</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="ingresa_tu_contraseña">Ingresa tu contraseña</string>
+    <string name="olvidaste_tu_contrasena">¿Olvidaste tu contraseña?</string>
+    <string name="btn_login">Login</string>
+    <string name="txt_crear_cta">Crear una nueva cuenta</string>
+    <string name="content_description_start_icon">Ver</string>
+    <string name="alt_logo">logo de la aplicacion</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logo_alke_wallet">Logo Alke Wallet</string>
+    <string name="registrarse_y_empezar_a_transferir">Registrarse y empezar a transferir</string>
+    <string name="ya_tienes_una_cuenta">¿Ya tienes una cuenta?</string>
+    <string name="crear_cuenta">Crear Cuenta</string>
+    <string name="nombre">Nombre</string>
+    <string name="fecha">Mes 14, 10:24 AM</string>
+    <string name="deposito">+$20.50</string>
+    <string name="giro">-$15.00</string>
+    <string name="ingresar_nombre">Ingresar nombre</string>
+    <string name="Apellido">Apellido</string>
+    <string name="ingresar_apellido">Ingresar apellido</string>
+    <string name="reingresar_contrase_a">Reingresar contraseña</string>
+    <string name="registrarse">Crear cuenta</string>
+    <string name="inicio">Inicio</string>
+    <string name="hola_amanda">Hola, Amanda!</string>
+    <string name="balance_total">Balance Total</string>
+    <string name="_124_57">$124.57</string>
+    <string name="description">Imagen del perfil</string>
+    <string name="btn_enviar_dinero">Enviar Dinero</string>
+    <string name="btn_ingresar_dinero">Ingresar dinero</string>
+    <string name="ultimas_transacciones">Últimas transacciones</string>
+    <string name="no_hay_transacciones">¡No hay transacciones registradas!</string>
+    <string name="email">usuario@gmail.com</string>
+    <string name="cantidad_a_ingresar">Cantidad a ingresar</string>
+    <string name="cantidad_a_transferir">Cantidad a transferir</string>
+    <string name="cantidad_a_ingresar_monto">20.00</string>
+    <string name="notas_de_transferencia">Notas de transferencia</string>
+    <string name="placeholder_notas_de_transferencia">Agregar notas de transferencia(opcional)</string>
+    <string name="enviar_dinero">Enviar dinero</string>
+    <string name="inicial">Y</string>
+    <string name="mi">Mi</string>
+    <string name="perfil">Mi perfil</string>
+    <string name="amanda">Amanda Alkemy</string>
+    <string name="alkemy">Alkemy</string>
+    <string name="mi_informaci_n">Mi Información</string>
+    <string name="mis_tarjetas">Mis tarjetas</string>
+    <string name="opciones">Opciones</string>
+    <string name="centro_de_ayuda">Centro de ayuda</string>
+
+</resources>

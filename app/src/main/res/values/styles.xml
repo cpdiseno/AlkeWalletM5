@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextInputstyle" >
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+        <item name="boxStrokeColor">@color/azul</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
+
+    <style name="TextInputstyle_bordeazul" >
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+        <item name="boxStrokeColor">@color/celeste</item>
+        <item name="boxStrokeWidth">4dp</item>
+    </style>
+
+</resources>

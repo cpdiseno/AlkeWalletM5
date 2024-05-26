@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/inicio2">
+
+
+    <fragment
+        android:id="@+id/inicio2"
+        android:name="pena.camila.alkewalletm5.view.Inicio"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicio2_to_loginPage"
+            app:destination="@id/loginPage" />
+        <action
+            android:id="@+id/action_inicio2_to_signupPage"
+            app:destination="@id/signupPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPage"
+        android:name="pena.camila.alkewalletm5.view.LoginPage"
+        android:label="fragment_login_page"
+        tools:layout="@layout/fragment_login_page" >
+        <action
+            android:id="@+id/action_loginPage_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupPage"
+        android:name="pena.camila.alkewalletm5.view.SignupPage"
+        android:label="fragment_signup_page"
+        tools:layout="@layout/fragment_signup_page" >
+        <action
+            android:id="@+id/action_signupPage_to_emptyCase"
+            app:destination="@id/emptyCase" />
+    </fragment>
+    <fragment
+        android:id="@+id/emptyCase"
+        android:name="pena.camila.alkewalletm5.view.EmptyCase"
+        android:label="fragment_empty_case"
+        tools:layout="@layout/fragment_empty_case" >
+        <action
+            android:id="@+id/action_emptyCase_to_requestMoney"
+            app:destination="@id/requestMoney" />
+        <action
+            android:id="@+id/action_emptyCase_to_sendMoney"
+            app:destination="@id/sendMoney" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="pena.camila.alkewalletm5.view.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_requestMoney"
+            app:destination="@id/requestMoney" />
+        <action
+            android:id="@+id/action_home2_to_sendMoney"
+            app:destination="@id/sendMoney" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestMoney"
+        android:name="pena.camila.alkewalletm5.view.RequestMoney"
+        android:label="fragment_request_money"
+        tools:layout="@layout/fragment_request_money" />
+    <fragment
+        android:id="@+id/sendMoney"
+        android:name="pena.camila.alkewalletm5.view.SendMoney"
+        android:label="fragment_send_money"
+        tools:layout="@layout/fragment_send_money" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="pena.camila.alkewalletm5.view.Profile"
+        android:label="Profile" />
+</navigation>
