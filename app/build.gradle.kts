@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "pena.camila.alkewallet"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -20,6 +20,9 @@ android {
         viewBinding {
             enable = true
         }
+        buildFeatures {
+        viewBinding = true
+    }
 
     buildTypes {
         release {
@@ -41,28 +44,30 @@ android {
 
     dependencies {
         val lifecycleVersion = "2.8.0"
-
+        val navVersion = "2.7.3"
+        implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+        implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
         // Core KTX
-        implementation("androidx.core:core-ktx:1.13.1")
+        implementation(libs.androidx.core.ktx)
 
         // ViewModel
-        implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+        implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
         // LiveData
-        implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+        implementation(libs.androidx.lifecycle.livedata.ktx.v280)
 
         // Lifecycle only (without ViewModel or LiveData)
-        implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
+        implementation(libs.androidx.lifecycle.runtime.ktx)
 
         // Retrofit
-        implementation("com.squareup.retrofit2:retrofit:2.9.0")
+        implementation(libs.retrofit)
 
         // Gson
-        implementation("com.google.code.gson:gson:2.10.1")
+        implementation(libs.gson)
 
         // Gson Converter
-        implementation("com.squareup.retrofit2:converter-gson:2.3.0")
+        implementation(libs.converter.gson)
 
         // AndroidX AppCompat
         implementation(libs.androidx.appcompat)
@@ -82,7 +87,7 @@ android {
         androidTestImplementation(libs.androidx.espresso.core)
 
         // Room
-        annotationProcessor("androidx.room:room-compiler:2.6.1")
+        annotationProcessor(libs.androidx.room.compiler)
 
         // Navigation Component
         implementation(libs.androidx.navigation.runtime)
@@ -91,5 +96,18 @@ android {
         // Support Annotations
         implementation(libs.support.annotations)
 
+        //Implementar las liberias para el uso de Retrofit
+        implementation(libs.retrofit)
+        implementation(libs.converter.gson)
+
 }
+}
+dependencies {
+    implementation(libs.filament.android)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    implementation (libs.navigation.fragment.ktx)
+    implementation (libs.navigation.ui.ktx)
 }

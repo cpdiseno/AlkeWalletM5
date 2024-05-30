@@ -12,8 +12,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="267dp"
-        android:layout_height="85dp"
+        android:layout_width="324dp"
+        android:layout_height="110dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="40dp"
 
@@ -28,17 +28,17 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="163dp"
+        android:layout_height="19dp"
 
+        android:layout_marginTop="28dp"
         android:text="@string/olvidaste_tu_contrasena"
         android:textColor="@color/azul"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+        app:layout_constraintEnd_toEndOf="@+id/txtContrasena"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasena"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/inputContrasena"
         android:layout_width="315dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -100,7 +100,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtPassword"
+            android:id="@+id/contrasena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -114,17 +114,15 @@
         android:id="@+id/BotonLogin"
         android:layout_width="315dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/azul"
 
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/azul"
         android:text="@string/btn_login"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCrearNuevaCuenta"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="1.0"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
 
     <Button
         android:id="@+id/buttonCrearNuevaCuenta"

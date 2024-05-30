@@ -1,66 +1,77 @@
-package pena.camila.alkewalletm5.view;
+package pena.camila.alkewalletm5.view
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import pena.camila.alkewalletm5.R;
+import pena.camila.alkewalletm5.databinding.FragmentInicioBinding
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Inicio#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Inicio extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+class Inicio : Fragment() {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private lateinit var binding: FragmentInicioBinding
 
-    public Inicio() {
-        // Required empty public constructor
+    override fun onCreateView(
+        inflater: LayoutInflater, container:ViewGroup?,
+        savedIntanceState:Bundle?
+    ):View? {
+// Inflate the layout for this fragment
+        binding = FragmentInicioBinding.inflate(inflater, container, false)
+
+        binding.botonCrearCuenta.setOnClickListener {
+            it.findNavController().navigate(R.id.action_inicio_to_signupPage)
+        }
+        return binding.root
     }
+}
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Inicio.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Inicio newInstance(String param1, String param2) {
-        Inicio fragment = new Inicio();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
+
+
+
+/*
+internal class Inicio : Fragment() {
+    private var binding: FragmentInicioBinding? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (arguments != null) {
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio, container, false);
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout using view binding
+        binding = FragmentInicioBinding.inflate(inflater, container, false)
+
+        // Return the root view
+        return binding!!.root
     }
-}
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Get references to the views using binding
+        val crearcuenta: Button = binding!!.botonCrearCuenta
+        val yatienescuenta: TextView = binding!!.yaTienesCuenta
+
+        // Set a click listener for the "Crear cuenta" button
+        crearcuenta.setOnClickListener(View.OnClickListener {
+            // Handle the click event here
+        })
+    }
+
+    companion object {
+        fun newInstance(param1: String?, param2: String?): Inicio {
+            val fragment = Inicio()
+            val args = Bundle()
+            return fragment
+        }
+    }
+}*/

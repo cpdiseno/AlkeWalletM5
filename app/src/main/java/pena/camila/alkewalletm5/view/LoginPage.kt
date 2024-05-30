@@ -1,38 +1,79 @@
-package pena.camila.alkewalletm5.view;
+package pena.camila.alkewalletm5.view
 
-import android.os.Bundle;
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import pena.camila.alkewalletm5.databinding.FragmentLoginPageBinding
+import pena.camila.alkewalletm5.viewmodel.LoginViewModel
 
-import androidx.fragment.app.Fragment;
+class LoginPage : Fragment() {
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+    private lateinit var binding: FragmentLoginPageBinding
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var viewModel: LoginViewModel
 
-import pena.camila.alkewalletm5.R;
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Configurar el binding
+        binding = FragmentLoginPageBinding.inflate(inflater, container, false)
 
-public class LoginPage extends Fragment {
+        // Configurar el ViewModel
+        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
+        // Implementar los SharedPreferences
+        sharedPreferences = requireActivity().getSharedPreferences("AlkeWalet", Context.MODE_PRIVATE)
 
-
-    public LoginPage() {
-        // Required empty public constructor
-    }
-
-
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
+        // Verificar si el usuario ya guardó el correo
+        val correo = sharedPreferences.getString("correo_ingresado", null)
+        if (correo != null) {
+            binding.txtEmail.setText(correo)
         }
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login_page, container, false);
+        // Configurar el botón de inicio de sesión
+        binding.BotonLogin.setOnClickListener {
+            // Obtener la información ingresada por el usuario
+            val correoIngresado = binding.txtEmail.text.toString()
+            val passwordIngresado = binding.contrasena.getText().toString()
+
+            // Guardar el correo en los SharedPreferences
+            val editor = sharedPreferences.edit()
+            editor.putString("correo_ingresado", correoIngresado)
+            editor.putBoolean("recuerdame", true)
+            editor.apply()
+
+            // Realizar el inicio de sesión
+            viewModel.hacerLogin(correoIngresado, passwordIngresado)
+        }
+
+        // Configurar el observador del resultado del inicio de sesión
+        viewModel.loginResultLiveData.observe(viewLifecycleOwner) { loginOk ->
+            if (loginOk) {
+                val intent = Intent(requireActivity(), Home::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(requireContext(), "Datos inválidos", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        // Configurar el listener para los insets de la ventana
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        return binding.root
     }
 }
