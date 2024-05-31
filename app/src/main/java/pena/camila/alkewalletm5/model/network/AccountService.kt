@@ -1,18 +1,15 @@
 package pena.camila.alkewalletm5.model.network
 
+import pena.camila.alkewalletm5.model.RegisterRequest
 import pena.camila.alkewalletm5.model.User
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Query
+import retrofit2.http.POST
+
 
 interface AccountService {
 
-
-    @GET("auth/me")
-    fun obtenerInfoLogin(
-        @Header("Authorization") token: String
-    ): Call<User>
-
+    @POST("users")
+    fun crearUsuario(@Body usuarioCreado: RegisterRequest): Call<RegisterResponse>
 }
+

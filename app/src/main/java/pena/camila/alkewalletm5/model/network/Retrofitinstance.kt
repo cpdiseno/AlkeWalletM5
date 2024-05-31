@@ -8,7 +8,7 @@ class Retrofitinstance {
     companion object {
         val retrofit = Retrofit.Builder()
             .baseUrl("http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/")
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())    //obtiene Json y lo convierte a objeto
             .build()
     }
 }
