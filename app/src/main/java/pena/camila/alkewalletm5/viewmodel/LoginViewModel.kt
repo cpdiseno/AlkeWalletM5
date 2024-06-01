@@ -28,8 +28,8 @@ class LoginViewModel : ViewModel() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
 
-                //Aca nosotros vamos a llamar a la API
-                //Esta es la intancia de retrofit
+                //Aca llamamos a la API
+                //Esta es la instancia de retrofit
                 var login: LoginService = Retrofitinstance.retrofit.create(LoginService::class.java)
 
                 //Se crea esa variable que va a manejar la respuesta del servicio
@@ -47,7 +47,7 @@ class LoginViewModel : ViewModel() {
                         call: Call<LoginResponse>,
                         response: Response<LoginResponse>
                     ) {
-                        //Si la respues tiene un codigo entre el 200 y el 300 de HTTP
+                        //Si la respuesta tiene un codigo entre el 200 y el 300 de HTTP
                         if (response.isSuccessful) {
                             //Rescato la data que me devolvió el servicio ya tranformado desde JSON a un objeto
                             val respuesta: LoginResponse? = response.body()
