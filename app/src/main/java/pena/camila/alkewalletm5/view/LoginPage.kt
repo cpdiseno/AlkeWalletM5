@@ -1,7 +1,6 @@
 package pena.camila.alkewalletm5.view
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +11,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import pena.camila.alkewalletm5.R
 import pena.camila.alkewalletm5.databinding.FragmentLoginPageBinding
 import pena.camila.alkewalletm5.viewmodel.LoginViewModel
 
@@ -60,11 +61,17 @@ class LoginPage : Fragment() {
         // Configurar el observador del resultado del inicio de sesión
         viewModel.loginResultLiveData.observe(viewLifecycleOwner) { loginOk ->
             if (loginOk) {
-                val intent = Intent(requireActivity(), Home::class.java)
-                startActivity(intent)
+                // Navegar a la siguiente pantalla usando la acción definida en el nav_graph
+                findNavController().navigate(R.id.action_loginPage_to_home)
             } else {
                 Toast.makeText(requireContext(), "Datos inválidos", Toast.LENGTH_LONG).show()
             }
+        }
+
+        // Configurar el botón "Crear Nueva Cuenta"
+        binding.buttonCrearNuevaCuenta.setOnClickListener {
+            // Navegar a la pantalla de registro usando la acción definida en el nav_graph
+            findNavController().navigate(R.id.action_loginPage_to_signupPage)
         }
 
         // Configurar el listener para los insets de la ventana
