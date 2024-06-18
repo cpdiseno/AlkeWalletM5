@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
-
+        android:fontFamily="@font/jua"
         android:text="@string/inicio"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -80,7 +80,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="80dp"
-
+        android:fontFamily="@font/jua"
         android:text="@string/balance_total"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -95,7 +95,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="10dp"
-
+        android:fontFamily="@font/jua"
         android:text="@string/_124_57"
         android:textColor="@color/white"
         android:textSize="40sp"
@@ -125,7 +125,7 @@
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/verde"
-
+                android:fontFamily="@font/jua"
                 android:text="@string/btn_enviar_dinero"
                 android:textSize="14sp"
                 app:cornerRadius="8dp"
@@ -139,7 +139,7 @@
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/azul"
-
+                android:fontFamily="@font/jua"
                 android:text="@string/btn_ingresar_dinero"
                 android:textColor="@color/white"
                 android:textSize="14sp"
@@ -159,7 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-
+                android:fontFamily="@font/jua"
                 android:text="@string/ultimas_transacciones"
                 android:textColor="@color/negro"
                 android:textSize="16sp" />
@@ -189,7 +189,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="10dp"
-
+                android:fontFamily="@font/jua"
                 android:text="@string/nombre"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/fecha_yara"
@@ -203,7 +203,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:alpha="0.5"
-
+                android:fontFamily="@font/jua"
                 android:text="@string/fecha"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -226,205 +226,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
-
-                android:text="@string/giro"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp">
-
-            <ImageView
-                android:id="@+id/profile_sara"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/profile_sara"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/nombre_usuario_sara"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="10dp"
-
-                android:text="@string/nombre"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/fecha_sara"
-                app:layout_constraintStart_toEndOf="@+id/profile_sara"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/fecha_sara"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:alpha="0.5"
-
-                android:text="@string/fecha"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/profile_sara"
-                app:layout_constraintTop_toTopOf="@+id/nombre_usuario_sara" />
-
-
-            <TextView
-                android:id="@+id/saldo_sara"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-
-                android:text="@string/deposito"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/icon_deposito_sara"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
-                android:src="@drawable/icon_deposito"
-                app:layout_constraintStart_toStartOf="@+id/profile_sara"
-                app:layout_constraintTop_toTopOf="@+id/profile_sara" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp">
-
-            <ImageView
-                android:id="@+id/profile_ibrahim"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/profile_ibrahim"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/nombre_usuario_ibrahim"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="10dp"
-
-                android:text="@string/nombre"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/fecha_ibrahim"
-                app:layout_constraintStart_toEndOf="@+id/profile_ibrahim"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/fecha_ibrahim"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:alpha="0.5"
-
-                android:text="@string/fecha"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/profile_ibrahim"
-                app:layout_constraintTop_toTopOf="@+id/nombre_usuario_ibrahim" />
-
-
-            <TextView
-                android:id="@+id/saldo_ibrahim"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-
-                android:text="@string/deposito"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/icon_deposito_ibrahim"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
-                android:src="@drawable/icon_deposito"
-                app:layout_constraintStart_toStartOf="@+id/profile_ibrahim"
-                app:layout_constraintTop_toTopOf="@+id/profile_ibrahim" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp">
-
-            <ImageView
-                android:id="@+id/profile_reem"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/profile_reem"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/nombre_usuario_reem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="10dp"
-
-                android:text="@string/nombre"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/fecha_reem"
-                app:layout_constraintStart_toEndOf="@+id/profile_reem"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/fecha_reem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:alpha="0.5"
-
-                android:text="@string/fecha"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/profile_reem"
-                app:layout_constraintTop_toTopOf="@+id/nombre_usuario_reem" />
-
-            <ImageView
-                android:id="@+id/icono_giro_reem"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
-                android:src="@drawable/icon_transf"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/profile_reem"
-                app:layout_constraintTop_toTopOf="@+id/profile_reem" />
-
-            <TextView
-                android:id="@+id/saldo_reem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-
+                android:fontFamily="@font/jua"
                 android:text="@string/giro"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -100,6 +100,8 @@ android {
         implementation(libs.retrofit)
         implementation(libs.converter.gson)
 
+        implementation("androidx.vectordrawable:vectordrawable:1.1.0")
+
 }
 }
 dependencies {

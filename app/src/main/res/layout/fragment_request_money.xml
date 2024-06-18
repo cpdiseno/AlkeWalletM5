@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:fontFamily=" "
+            android:fontFamily="@font/jua"
             android:text="@string/btn_ingresar_dinero"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginBottom="4dp"
-            android:fontFamily=" "
+            android:fontFamily="@font/jua"
             android:text="@string/nombre"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/fecha_reem"
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:alpha="0.5"
-            android:fontFamily=" "
+            android:fontFamily="@font/jua"
             android:text="@string/email"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        android:fontFamily=" "
+        android:fontFamily="@font/jua"
         android:text="@string/cantidad_a_ingresar"
         tools:ignore="DuplicateIds" />
 
@@ -116,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_imput_border_blue"
-            android:fontFamily=" "
+            android:fontFamily="@font/jua"
             android:hint="@string/cantidad_a_ingresar_monto" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        android:fontFamily=" "
+        android:fontFamily="@font/jua"
         android:text="@string/notas_de_transferencia" />
 
 
@@ -144,7 +144,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             style="@style/TextInputstyle"
-            android:fontFamily=" "
+            android:fontFamily="@font/jua"
             android:hint="@string/placeholder_notas_de_transferencia"
             android:textColorHint="@color/gristexto"
             />
@@ -158,7 +158,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/azul"
-        android:fontFamily=" "
+        android:fontFamily="@font/jua"
         android:text="@string/btn_ingresar_dinero"
         android:textColor="@color/white"
         android:textSize="14sp"

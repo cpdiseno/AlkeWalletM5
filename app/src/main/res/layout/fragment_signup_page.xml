@@ -21,7 +21,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="70dp"
-
+            android:fontFamily="@font/jua"
             android:text="@string/registrarse_y_empezar_a_transferir"
             android:textAlignment="viewStart"
             android:textColor="@color/negro"
@@ -37,6 +37,7 @@
             android:text="@string/nombre"
             android:layout_marginStart="30dp"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/jua"
            />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -55,7 +56,7 @@
                 android:id="@+id/nombreIngresado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:fontFamily="@font/jua"
                 android:hint="@string/ingresar_nombre"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -69,6 +70,7 @@
             android:text="@string/Apellido"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/jua"
             />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -87,7 +89,7 @@
                 android:id="@+id/apellidoIngresado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:fontFamily="@font/jua"
                 android:hint="@string/ingresar_apellido" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,6 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Email"
+            android:fontFamily="@font/jua"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             />
@@ -117,7 +120,7 @@
                 android:id="@+id/emailIngresado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:fontFamily="@font/jua"
                 android:hint="@string/ingresa_tu_email" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,6 +135,7 @@
             android:text="@string/Contraseña"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/jua"
             />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -151,7 +155,7 @@
                 android:id="@+id/contrasenaIngresada"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:fontFamily="@font/jua"
                 android:hint="@string/ingresa_tu_contraseña" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -165,6 +169,7 @@
             android:text="@string/reingresar_contrase_a"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/jua"
              />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -184,7 +189,7 @@
                 android:id="@+id/reingresarcontrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:fontFamily="@font/jua"
                 android:hint="@string/reingresar_contrase_a"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -196,7 +201,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/azul"
-
+            android:fontFamily="@font/jua"
             android:text="@string/registrarse"
             app:cornerRadius="10dp" />
 
@@ -206,7 +211,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/white"
-
+            android:fontFamily="@font/jua"
             android:text="@string/txt_ya_tienes_cuenta"
             android:textColor="@color/azul"
             app:cornerRadius="10dp" />
