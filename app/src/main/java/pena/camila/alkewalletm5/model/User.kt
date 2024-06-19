@@ -6,6 +6,6 @@ data class User (
     val lastname: String,
     val email: String,
     val password: String,
-    val roleId: Long = 2,
+    val roleId: Long = 1,
     val points: Long = 0
 )

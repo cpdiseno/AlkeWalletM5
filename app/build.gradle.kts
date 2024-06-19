@@ -21,32 +21,36 @@ android {
             enable = true
         }
         buildFeatures {
-        viewBinding = true
-    }
+            viewBinding = true
+        }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        buildTypes {
+            release {
+                isMinifyEnabled = false
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            }
+        }
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_1_8
+            targetCompatibility = JavaVersion.VERSION_1_8
+        }
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+
+        viewBinding {
+            enable = true
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-}
 
     dependencies {
         val lifecycleVersion = "2.8.0"
         val navVersion = "2.7.3"
-        implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
-        implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+        implementation(libs.androidx.navigation.fragment.ktx.v273)
+        implementation(libs.androidx.navigation.ui.ktx.v273)
 
         // Core KTX
         implementation(libs.androidx.core.ktx)
@@ -86,7 +90,9 @@ android {
         androidTestImplementation(libs.androidx.junit)
         androidTestImplementation(libs.androidx.espresso.core)
 
+
         // Room
+        annotationProcessor(libs.androidx.room.compiler)
         annotationProcessor(libs.androidx.room.compiler)
 
         // Navigation Component
@@ -102,14 +108,12 @@ android {
 
         implementation("androidx.vectordrawable:vectordrawable:1.1.0")
 
+        implementation(libs.filament.android)
+        implementation(libs.androidx.appcompat)
+        implementation(libs.material)
+        implementation(libs.androidx.activity)
+        implementation(libs.androidx.constraintlayout)
+        implementation(libs.navigation.fragment.ktx)
+        implementation(libs.navigation.ui.ktx)
 }
-}
-dependencies {
-    implementation(libs.filament.android)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    implementation (libs.navigation.fragment.ktx)
-    implementation (libs.navigation.ui.ktx)
 }

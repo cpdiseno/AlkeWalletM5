@@ -5,26 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
+import pena.camila.alkewalletm5.databinding.FragmentProfileBinding
 import pena.camila.alkewalletm5.databinding.FragmentRequestMoneyBinding
 import pena.camila.alkewalletm5.databinding.FragmentSendMoneyBinding
 
-class RequestMoney : Fragment() {
-    private lateinit var binding: FragmentRequestMoneyBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentRequestMoneyBinding.inflate(inflater, container, false)
+    class RequestMoney : Fragment() {
+        private var _binding: FragmentProfileBinding? = null
+        private val binding get() = _binding!!
 
-        // Acción para la flecha volver
-        binding.volver.setOnClickListener {
-            findNavController().popBackStack()
+        override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View {
+            _binding = FragmentProfileBinding.inflate(inflater, container, false)
+            return binding.root
         }
 
-        return binding.root
+
     }
-}
