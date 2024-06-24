@@ -1,4 +1,4 @@
-package com.example.alkewalletfinal.model.network
+package pena.camila.alkewalletm5.model.network
 
 data class DepositOrTransferRequest(
     val type: String,

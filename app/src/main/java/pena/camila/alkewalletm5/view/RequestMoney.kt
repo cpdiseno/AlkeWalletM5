@@ -6,9 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import pena.camila.alkewalletm5.databinding.FragmentProfileBinding
-import pena.camila.alkewalletm5.databinding.FragmentRequestMoneyBinding
-import pena.camila.alkewalletm5.databinding.FragmentSendMoneyBinding
-
 
     class RequestMoney : Fragment() {
         private var _binding: FragmentProfileBinding? = null

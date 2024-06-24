@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,94 +7,6 @@
     tools:context=".view.Home">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineizquierda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="21dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelinederecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="21dp" />
-
-    <include
-        android:id="@+id/headerContainerHomePage"
-        layout="@layout/fragment_header_home_page" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_enviar_dinero"
-        android:fontFamily="@font/jua"
-        android:color="@color/verde"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="21dp"
-        android:text="@string/enviar_dinero"
-        app:icon="@drawable/send_icon"
-        app:iconGravity="textStart"
-        app:iconTint="@color/negro"
-        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
-        app:layout_constraintTop_toBottomOf="@id/headerContainerHomePage"
-        />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_ingresar_dinero"
-        android:fontFamily="@font/jua"
-        android:color="@color/azul"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="21dp"
-        android:text="@string/btn_ingresar_dinero"
-        app:icon="@drawable/request_icon"
-        app:iconGravity="textStart"
-        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
-        app:layout_constraintTop_toBottomOf="@id/headerContainerHomePage" />
-
-    <FrameLayout
-        android:id="@+id/transactionsContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
-        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
-        app:layout_constraintTop_toBottomOf="@id/button_enviar_dinero">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/transactionsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-
-        <LinearLayout
-            android:id="@+id/noTransactionsView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/no_transactions" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/no_hay_transacciones_registradas" />
-        </LinearLayout>
-    </FrameLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    <!--<androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -106,7 +17,6 @@
         android:id="@+id/imageView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/description"
         android:scaleType="centerCrop"
         android:src="@drawable/home_background"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
@@ -132,8 +42,7 @@
         android:layout_marginTop="24dp"
         android:src="@drawable/notifications_icon"
         app:layout_constraintEnd_toEndOf="@+id/fotoperfil"
-        app:layout_constraintTop_toBottomOf="@+id/fotoperfil"
-        android:contentDescription="@string/description"/>
+        app:layout_constraintTop_toBottomOf="@+id/fotoperfil" />
 
     <TextView
         android:id="@+id/text_titulo_home"
@@ -223,7 +132,7 @@
                 app:icon="@drawable/send_icon" />
 
             <Button
-                android:id="@+id/button_ingresar_dinero"
+                android:id="@+id/btn_ingresar_dinero"
                 style="@style/Widget.Material3.Button.TonalButton.Icon"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -258,49 +167,76 @@
         </LinearLayout>
 
 
-        <FrameLayout
-            android:id="@+id/transactionsContainer"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent">
-
-        </FrameLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/transactionsRecyclerView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-
-        <LinearLayout
-            android:id="@+id/noTransactionsView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone"
-            tools:ignore="UseCompoundDrawables">
+            android:padding="10dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/no_transactions"
-                android:contentDescription="@string/description"/>
+                android:id="@+id/profile_yara"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/foto_usuario"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/nombre_usuario_yara"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/jua"
-                android:text="@string/no_hay_transacciones_disponibles" />
-        </LinearLayout>
+                android:text="@string/nombre"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/fecha_yara"
+                app:layout_constraintStart_toEndOf="@+id/profile_yara"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fecha_yara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:alpha="0.5"
+                android:fontFamily="@font/jua"
+                android:text="@string/fecha"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/profile_yara"
+                app:layout_constraintTop_toTopOf="@+id/nombre_usuario_yara" />
+
+            <ImageView
+                android:id="@+id/icono_giro_yara"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/send_icon_amarillo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/profile_yara"
+                app:layout_constraintTop_toTopOf="@+id/profile_yara" />
+
+            <TextView
+                android:id="@+id/saldo_yara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/jua"
+                android:text="@string/giro"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
--->

@@ -1,86 +1,87 @@
 package pena.camila.alkewalletm5.view
 
-import android.content.Context
-import android.content.SharedPreferences
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import pena.camila.alkewalletm5.R
+import pena.camila.alkewalletm5.api.ApiClient
+import pena.camila.alkewalletm5.data.database.AppDatabase
+import pena.camila.alkewalletm5.data.repository.TransactionRepository
 import pena.camila.alkewalletm5.databinding.FragmentLoginPageBinding
+import pena.camila.alkewalletm5.utils.SharedPreferencesManager
+import pena.camila.alkewalletm5.utils.TransactionFetcher
 import pena.camila.alkewalletm5.viewmodel.LoginViewModel
+import pena.camila.alkewalletm5.viewmodel.ViewModelFactory
 
 class LoginPage : Fragment() {
+    private var _binding: FragmentLoginPageBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var binding: FragmentLoginPageBinding
-    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var viewModel: LoginViewModel
+    private val sharedPreferencesManager by lazy { SharedPreferencesManager(requireContext()) }
+
+    private val appDatabase by lazy {
+        AppDatabase.getDatabase(requireContext())
+    }
+
+    private val transactionRepository by lazy {
+        TransactionRepository(appDatabase.transactionDao(), ApiClient.apiService)
+    }
+
+    private val transactionFetcher by lazy {
+        TransactionFetcher(transactionRepository)
+    }
+
+    private val loginViewModel: LoginViewModel by viewModels {
+        ViewModelFactory(sharedPreferencesManager, transactionFetcher)
+    }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Configurar el binding
-        binding = FragmentLoginPageBinding.inflate(inflater, container, false)
+    ): View {
 
-        // Configurar el ViewModel
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        _binding = FragmentLoginPageBinding.inflate(inflater, container, false)
+        setEmailInput()
+        return binding.root
+    }
 
-        // Implementar los SharedPreferences
-        sharedPreferences = requireActivity().getSharedPreferences("AlkeWalet", Context.MODE_PRIVATE)
+    /**
+     * Set email input desde sharedpreferences
+     */
+    private fun setEmailInput() {
+        binding.txtEmail.setText(sharedPreferencesManager.getUser()?.email)
+    }
 
-        // Verificar si el usuario ya guardó el correo
-        val correo = sharedPreferences.getString("correo_ingresado", null)
-        if (correo != null) {
-            binding.txtEmail.setText(correo)
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        // Configurar el botón de inicio de sesión
         binding.BotonLogin.setOnClickListener {
-            // Obtener la información ingresada por el usuario
-            val correoIngresado = binding.txtEmail.text.toString()
-            val passwordIngresado = binding.contrasena.getText().toString()
-
-            // Guardar el correo en los SharedPreferences
-            val editor = sharedPreferences.edit()
-            editor.putString("correo_ingresado", correoIngresado)
-            editor.putBoolean("recuerdame", true)
-            editor.apply()
-
-            // Realizar el inicio de sesión
-            viewModel.hacerLogin(correoIngresado, passwordIngresado)
+            val email = binding.txtEmail.text.toString()
+            val password = binding.txtContrasena.text.toString()
+            loginViewModel.login(email, password)
         }
 
-        // Configurar el observador del resultado del inicio de sesión
-        viewModel.loginResultLiveData.observe(viewLifecycleOwner) { loginOk ->
-            if (loginOk) {
-                // Navegar a la siguiente pantalla usando la acción definida en el nav_graph
+        loginViewModel.loginResult.observe(viewLifecycleOwner) { isSuccess ->
+            if (isSuccess) {
                 findNavController().navigate(R.id.action_loginPage_to_home)
             } else {
-                Toast.makeText(requireContext(), "Datos inválidos", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.login_failed),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
+    }
 
-        // Configurar el botón "Crear Nueva Cuenta"
-        binding.buttonCrearNuevaCuenta.setOnClickListener {
-            // Navegar a la pantalla de registro usando la acción definida en el nav_graph
-            findNavController().navigate(R.id.action_loginPage_to_signupPage)
-        }
-
-        // Configurar el listener para los insets de la ventana
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        return binding.root
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -3,7 +3,7 @@ package pena.camila.alkewalletm5.model.network
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-// Se configura retrofit
+// Se configura retrofit para que se pueda consumir la api
 class Retrofitinstance {
     companion object {
         val retrofit = Retrofit.Builder()

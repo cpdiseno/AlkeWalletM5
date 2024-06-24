@@ -53,5 +53,9 @@
     <string name="mis_tarjetas">Mis tarjetas</string>
     <string name="opciones">Opciones</string>
     <string name="centro_de_ayuda">Centro de ayuda</string>
+    <string name="no_hay_transacciones_disponibles">No hay transacciones disponibles</string>
+    <string name="transaction_amount_with_sign">%1$s</string>
+    <string name="login_failed">Error en inicio de sesión</string>
+    <string name="no_hay_transacciones_registradas">No hay transacciones registradas</string>
 
 </resources>

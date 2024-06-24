@@ -1,18 +1,20 @@
-package pena.camila.alkewalletm5.model.network
+package pena.camila.alkewalletm5.api
 
-
-import com.example.alkewalletfinal.model.network.DepositOrTransferRequest
-import com.example.alkewalletfinal.model.network.DepositOrTransferResponse
-import pena.camila.alkewalletm5.model.LoginRequest
-import pena.camila.alkewalletm5.model.LoginResponse
-import pena.camila.alkewalletm5.model.RegisterRequest
-import pena.camila.alkewalletm5.model.User
+import pena.camila.alkewalletm5.model.network.LoginRequest
+import pena.camila.alkewalletm5.model.network.LoginResponse
+import pena.camila.alkewalletm5.model.network.RegisterRequest
+import pena.camila.alkewalletm5.model.network.User
+import pena.camila.alkewalletm5.model.network.AccountResponse
+import pena.camila.alkewalletm5.model.network.CreateAccountResponse
+import pena.camila.alkewalletm5.model.network.DepositOrTransferRequest
+import pena.camila.alkewalletm5.model.network.DepositOrTransferResponse
+import pena.camila.alkewalletm5.model.network.PaginatedTransactionResponse
+import pena.camila.alkewalletm5.model.network.RegisterResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
-import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface ApiService {

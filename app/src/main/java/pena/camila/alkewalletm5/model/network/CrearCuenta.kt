@@ -1,4 +1,4 @@
-package pena.camila.alkewalletm5.model
+package pena.camila.alkewalletm5.model.network
 
 
 data class CrearCuenta(

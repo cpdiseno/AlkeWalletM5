@@ -6,19 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import pena.camila.alkewalletm5.R
 import pena.camila.alkewalletm5.databinding.FragmentInicioBinding
 
+
 class Inicio : Fragment() {
 
-    private lateinit var binding: FragmentInicioBinding
+  //  private lateinit var binding: FragmentInicioBinding
+  private var _binding: FragmentInicioBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentInicioBinding.inflate(inflater, container, false)
+    ): View {
+        _binding = FragmentInicioBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
 
         // Acción para el botón "botonCrearCuenta"
         binding.botonCrearCuenta.setOnClickListener {
@@ -27,13 +36,14 @@ class Inicio : Fragment() {
 
         // Acción para el botón "yaTienesCuenta"
         binding.yaTienesCuenta.setOnClickListener {
-            it.findNavController().navigate(R.id.action_inicio_to_loginPage)
+        findNavController().navigate(R.id.action_inicio_to_loginPage)
         }
-
-        return binding.root
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
-
 
 
 /*

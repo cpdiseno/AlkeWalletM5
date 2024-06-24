@@ -1,14 +1,10 @@
 package pena.camila.alkewalletm5.model.network
 
-import pena.camila.alkewalletm5.model.LoginRequest
-import pena.camila.alkewalletm5.model.LoginResponse
-import pena.camila.alkewalletm5.model.User
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.http.GET
 import retrofit2.http.Header
-import retrofit2.http.Path
 
 /**
  * Api service que contiene los metodos para logear al usuario

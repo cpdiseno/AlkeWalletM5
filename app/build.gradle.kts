@@ -1,6 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    //id("com.google.gms.google-services")
+    id("org.jetbrains.kotlin.kapt")
+
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13"
+
 }
 
 android {
@@ -15,14 +20,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        // habilitar viewBinding
-        viewBinding {
-            enable = true
-        }
-        buildFeatures {
-            viewBinding = true
-        }
+    }
 
         buildTypes {
             release {
@@ -33,87 +31,57 @@ android {
                 )
             }
         }
+
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
         }
+
         kotlinOptions {
             jvmTarget = "1.8"
         }
 
+        // habilitar viewBinding
         viewBinding {
             enable = true
         }
+
     }
 
     dependencies {
-        val lifecycleVersion = "2.8.0"
-        val navVersion = "2.7.3"
-        implementation(libs.androidx.navigation.fragment.ktx.v273)
-        implementation(libs.androidx.navigation.ui.ktx.v273)
-
-        // Core KTX
         implementation(libs.androidx.core.ktx)
+        implementation(libs.androidx.appcompat) // Librería de compatibilidad para características más antiguas de Android
+        implementation(libs.material) // Librería de Material Design para componentes de interfaz de usuario
+        implementation(libs.androidx.activity)// Librería para actividades de Android
+        implementation(libs.androidx.constraintlayout) // Librería para diseños ConstraintLayout
+        implementation(libs.androidx.navigation.fragment.ktx) // Librería para navegación entre fragmentos
+        implementation(libs.androidx.navigation.ui.ktx) // Librería para integrar la navegación con la interfaz de usuario
+        implementation(libs.androidx.annotation) // Librería deanotaciones de AndroidX
+        implementation(libs.androidx.lifecycle.livedata.ktx) // Librería para LiveData con extensiones de Kotlin
+        implementation(libs.androidx.lifecycle.viewmodel.ktx) // Librería para ViewModel con extensiones de Kotlin
 
-        // ViewModel
-        implementation(libs.androidx.lifecycle.viewmodel.ktx)
+        // Librerías de redandroidx.room:room-compiler:2.4.2
+        implementation(libs.retrofit) // Librería para realizar solicitudes de red
+        implementation(libs.converter.gson) // Conversor de Gson para Retrofit, para serializar/deserializar datos JSON
+        implementation(libs.logging.interceptor) // Interceptor para registrar solicitudes y respuestas de red
 
-        // LiveData
-        implementation(libs.androidx.lifecycle.livedata.ktx.v280)
+        // Librerías de base de datos ROOM
+        implementation(libs.androidx.room.runtime)
+       ksp(libs.androidx.room.compiler)
+        implementation(libs.androidx.room.ktx) // Extensiones de Kotlin para Room
 
-        // Lifecycle only (without ViewModel or LiveData)
-        implementation(libs.androidx.lifecycle.runtime.ktx)
+        // Librerías de Firebase
+        //  implementation(platform(libs.firebase.bom)) // Plataforma de Firebase para gestionar dependencias
+        // implementation(libs.firebase.analytics) // Librería de análisis de Firebase
 
-        // Retrofit
-        implementation(libs.retrofit)
-
-        // Gson
-        implementation(libs.gson)
-
-        // Gson Converter
-        implementation(libs.converter.gson)
-
-        // AndroidX AppCompat
-        implementation(libs.androidx.appcompat)
-
-        // Material Design
-        implementation(libs.material)
-
-        // AndroidX Activity
-        implementation(libs.androidx.activity)
-
-        // AndroidX ConstraintLayout
-        implementation(libs.androidx.constraintlayout)
-
-        // Testing
-        testImplementation(libs.junit)
-        androidTestImplementation(libs.androidx.junit)
-        androidTestImplementation(libs.androidx.espresso.core)
-
-
-        // Room
-        annotationProcessor(libs.androidx.room.compiler)
-        annotationProcessor(libs.androidx.room.compiler)
-
-        // Navigation Component
-        implementation(libs.androidx.navigation.runtime)
-        implementation(libs.androidx.navigation.fragment.ktx)
-
-        // Support Annotations
-        implementation(libs.support.annotations)
-
-        //Implementar las liberias para el uso de Retrofit
-        implementation(libs.retrofit)
-        implementation(libs.converter.gson)
-
-        implementation("androidx.vectordrawable:vectordrawable:1.1.0")
-
-        implementation(libs.filament.android)
-        implementation(libs.androidx.appcompat)
-        implementation(libs.material)
-        implementation(libs.androidx.activity)
-        implementation(libs.androidx.constraintlayout)
-        implementation(libs.navigation.fragment.ktx)
-        implementation(libs.navigation.ui.ktx)
-}
-}
+        // Librerías de prueba
+        androidTestImplementation(libs.androidx.junit) // Librería de pruebas de AndroidX JUnit
+        androidTestImplementation(libs.androidx.espresso.core) // Librería de pruebas de AndroidX Espresso
+        //   androidTestImplementation(libs.mockwebserver.v490) // Librería MockWebServer para pruebas de red
+        testImplementation(libs.junit) // Librería JUnit para pruebas unitarias
+        // testImplementation(libs.mockito.mockito.core) // Librería Mockito para crear objetos simulados
+        //  testImplementation(libs.mockito.inline) // Soporte en línea para Mockito
+        //  testImplementation(libs.mockwebserver) // Librería MockWebServer para pruebas de red
+        //  testImplementation(libs.retrofit.mock) // Adaptador de Retrofit para MockWebServer
+        //  testImplementation(libs.converter.gson.v290) // Conversor de Gson para Retrofit
+    }

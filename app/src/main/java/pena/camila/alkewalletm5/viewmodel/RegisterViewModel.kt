@@ -2,7 +2,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import pena.camila.alkewalletm5.model.RegisterRequest
+import pena.camila.alkewalletm5.model.network.RegisterRequest
 import pena.camila.alkewalletm5.model.network.AccountService
 import pena.camila.alkewalletm5.model.network.RegisterResponse
 import pena.camila.alkewalletm5.model.network.Retrofitinstance
