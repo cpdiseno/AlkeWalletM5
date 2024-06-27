@@ -5,53 +5,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Home">
+    android:background="@color/white"
+    tools:context="pena.camila.alkewalletm5.view.Home">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineizquierda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="21dp" />
+        app:layout_constraintGuide_begin="18dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelinederecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="21dp" />
+        app:layout_constraintGuide_end="18dp" />
 
     <include
         android:id="@+id/headerContainerHomePage"
         layout="@layout/fragment_header_home_page" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/button_enviar_dinero"
-        android:fontFamily="@font/jua"
-        android:color="@color/verde"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="21dp"
+        android:fontFamily="@font/jua"
         android:text="@string/enviar_dinero"
         app:icon="@drawable/send_icon"
         app:iconGravity="textStart"
         app:iconTint="@color/negro"
-        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
-        app:layout_constraintTop_toBottomOf="@id/headerContainerHomePage"
-        />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_ingresar_dinero"
-        android:fontFamily="@font/jua"
-        android:color="@color/azul"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="21dp"
-        android:text="@string/btn_ingresar_dinero"
-        app:icon="@drawable/request_icon"
-        app:iconGravity="textStart"
-        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
-        app:layout_constraintTop_toBottomOf="@id/headerContainerHomePage" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.446"
+   />
 
     <FrameLayout
         android:id="@+id/transactionsContainer"
@@ -62,13 +50,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
         app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
-        app:layout_constraintTop_toBottomOf="@id/button_enviar_dinero">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/transactionsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
+        >
 
         <LinearLayout
             android:id="@+id/noTransactionsView"
@@ -83,224 +65,48 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/no_transactions" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/no_hay_transacciones_registradas" />
+
         </LinearLayout>
+
     </FrameLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    <!--<androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.30" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="@string/description"
-        android:scaleType="centerCrop"
-        android:src="@drawable/home_background"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/fotoperfil"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:src="@drawable/profilepicture"
-        android:contentDescription="@string/description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/icono_notificacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/notifications_icon"
-        app:layout_constraintEnd_toEndOf="@+id/fotoperfil"
-        app:layout_constraintTop_toBottomOf="@+id/fotoperfil"
-        android:contentDescription="@string/description"/>
-
-    <TextView
-        android:id="@+id/text_titulo_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_ingresar_dinero"
+        android:layout_width="165dp"
+        android:layout_height="50dp"
+        android:paddingHorizontal="1dp"
+        android:text="@string/btn_ingresar_dinero"
+        app:icon="@drawable/request_icon"
+        app:iconGravity="textStart"
         android:fontFamily="@font/jua"
-        android:text="@string/inicio"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/transactionsContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.445" />
 
     <TextView
-        android:id="@+id/text_saludo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="130dp"
-        android:alpha="0.5"
-
-        android:text="@string/hola_amanda"
-        android:textColor="@color/white"
+        android:id="@+id/textView10"
+        android:layout_width="377dp"
+        android:layout_height="22dp"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/jua"
+        android:text="@string/ultimas_transacciones"
+        android:textColor="@color/negro"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/text_titulo_home" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.525"
+        tools:layout_editor_absoluteX="25dp"
+        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/texto_balance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="80dp"
-        android:fontFamily="@font/jua"
-        android:text="@string/balance_total"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_saludo" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactionsRecyclerView"
+        android:layout_width="389dp"
+        android:layout_height="275dp"
+        android:scrollbars="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="405dp" />
 
-    <TextView
-        android:id="@+id/monto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/jua"
-        android:text="@string/_124_57"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto_balance" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button_enviar_dinero"
-                style="@style/Widget.Material3.Button.TonalButton.Icon"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/verde"
-                android:fontFamily="@font/jua"
-                android:text="@string/btn_enviar_dinero"
-                android:textSize="14sp"
-                app:cornerRadius="8dp"
-                app:icon="@drawable/send_icon" />
-
-            <Button
-                android:id="@+id/button_ingresar_dinero"
-                style="@style/Widget.Material3.Button.TonalButton.Icon"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/azul"
-                android:fontFamily="@font/jua"
-                android:text="@string/btn_ingresar_dinero"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:cornerRadius="8dp"
-                app:icon="@drawable/request_icon"
-                app:iconTint="@color/white" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:fontFamily="@font/jua"
-                android:text="@string/ultimas_transacciones"
-                android:textColor="@color/negro"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-
-
-        <FrameLayout
-            android:id="@+id/transactionsContainer"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent">
-
-        </FrameLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/transactionsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-
-        <LinearLayout
-            android:id="@+id/noTransactionsView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone"
-            tools:ignore="UseCompoundDrawables">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/no_transactions"
-                android:contentDescription="@string/description"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/jua"
-                android:text="@string/no_hay_transacciones_disponibles" />
-        </LinearLayout>
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
--->

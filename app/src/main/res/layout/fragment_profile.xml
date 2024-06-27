@@ -1,156 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".view.Home"
-    android:background="@color/white">
-
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        tools:context="view.Profile">
 
+        <include
+            android:id="@+id/profileHeader"
+            layout="@layout/fragment_header_profile" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="20dp"
-            android:paddingTop="50dp"
-            android:background="@color/gris">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineizquierda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="21dp" />
 
-
-            <ImageView
-                android:id="@+id/miperfil"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="50dp"
-                android:contentDescription="@string/description"
-                android:src="@drawable/miperfil"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <ImageView
-                android:id="@+id/edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:src="@drawable/baseline_mode_edit_outline_24"
-                app:layout_constraintStart_toEndOf="@+id/miperfil"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <TextView
-                android:id="@+id/text_titulo_miperfil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:layout_marginBottom="9dp"
-                android:text="@string/perfil"
-                android:fontFamily="@font/jua"
-                android:textColor="@color/negro"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/miperfil"
-                app:layout_constraintEnd_toEndOf="@+id/miperfil"
-                app:layout_constraintStart_toStartOf="@+id/miperfil"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/text_usuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/jua"
-                android:text="@string/amanda"
-                android:textColor="@color/negro"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/miperfil"
-                app:layout_constraintStart_toStartOf="@+id/miperfil"
-                app:layout_constraintTop_toBottomOf="@+id/miperfil" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinederecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="21dp" />
 
         <Button
-            android:id="@+id/button_enviar_dinero"
-            style="@style/Widget.Material3.Button.TonalButton.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_margin="15dp"
-            android:backgroundTint="@color/gris"
+            android:id="@+id/miInformacion"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="21dp"
+            android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/person"
             android:drawableRight="@drawable/baseline_navigate_next_24"
-            android:fontFamily="@font/jua"
-            android:text="@string/mi_informaci_n"
-            android:textAlignment="textStart"
-            android:textSize="14sp"
-            app:cornerRadius="15dp"
-            app:iconPadding="15dp" />
+            android:gravity="start|center"
+            android:text="Mi información"
+            android:textColor="@color/negro"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toBottomOf="@id/profileHeader" />
 
         <Button
-            android:id="@+id/button_mistarjetas"
-            style="@style/Widget.Material3.Button.TonalButton.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_margin="15dp"
-            android:backgroundTint="@color/gris"
+            android:id="@+id/misTarjetas"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="21dp"
+            android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/card_icon"
             android:drawableRight="@drawable/baseline_navigate_next_24"
-            android:fontFamily="@font/jua"
-            android:text="@string/mis_tarjetas"
-            android:textAlignment="textStart"
-            android:textSize="14sp"
-            app:cornerRadius="15dp"
-            app:iconPadding="15dp" />
+            android:gravity="start|center"
+            android:text="Mis tarjetas"
+            android:textColor="@color/negro"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toBottomOf="@id/miInformacion" />
 
         <Button
-            android:id="@+id/button_opciones"
-            style="@style/Widget.Material3.Button.TonalButton.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_margin="15dp"
-            android:backgroundTint="@color/gris"
+            android:id="@+id/opciones"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="21dp"
+            android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/settings_icon"
             android:drawableRight="@drawable/baseline_navigate_next_24"
-            android:fontFamily="@font/jua"
-            android:text="@string/opciones"
-            android:textAlignment="textStart"
-            android:textSize="14sp"
-            app:cornerRadius="15dp"
-            app:iconPadding="15dp" />
+            android:gravity="start|center"
+            android:text="Opciones"
+            android:textColor="@color/negro"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toBottomOf="@id/misTarjetas" />
 
         <Button
-            android:id="@+id/button_ayuda"
-            style="@style/Widget.Material3.Button.TonalButton.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_margin="15dp"
-            android:backgroundTint="@color/gris"
+            android:id="@+id/ayuda"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="21dp"
+            android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/help_icon"
             android:drawableRight="@drawable/baseline_navigate_next_24"
-            android:fontFamily="@font/jua"
+            android:gravity="start|center"
             android:text="@string/centro_de_ayuda"
-            android:textAlignment="textStart"
-            android:textSize="14sp"
-            app:cornerRadius="15dp"
-            app:iconPadding="15dp" />
+            android:textColor="@color/negro"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toBottomOf="@id/opciones" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/white">
 
-        </FrameLayout>
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

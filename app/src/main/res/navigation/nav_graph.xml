@@ -65,9 +65,6 @@
         <action
             android:id="@+id/action_emptyCase_to_requestMoney"
             app:destination="@id/requestMoney" />
-        <action
-            android:id="@+id/action_emptyCase_to_sendMoney"
-            app:destination="@id/sendMoney" />
     </fragment>
     <fragment
         android:id="@+id/home"
@@ -85,17 +82,16 @@
         android:id="@+id/requestMoney"
         android:name="pena.camila.alkewalletm5.view.RequestMoney"
         android:label="fragment_request_money"
-        tools:layout="@layout/fragment_request_money" />
+        tools:layout="@layout/fragment_request_money" >
+        <action
+            android:id="@+id/action_requestMoney_to_home"
+            app:destination="@id/home" />
+    </fragment>
     <fragment
         android:id="@+id/sendMoney"
         android:name="pena.camila.alkewalletm5.view.SendMoney"
         android:label="fragment_send_money"
         tools:layout="@layout/fragment_send_money" />
-
-    <fragment
-        android:id="@+id/profile"
-        android:name="pena.camila.alkewalletm5.view.Profile"
-        android:label="Profile" />
 
 
 </navigation>

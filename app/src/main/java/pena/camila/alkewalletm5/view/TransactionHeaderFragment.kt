@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import pena.camila.alkewalletm5.databinding.FragmentHeaderHomePageBinding
+import pena.camila.alkewalletm5.databinding.FragmentTransactionHeaderBinding
 import pena.camila.alkewalletm5.utils.SharedPreferencesManager
 
-class HeaderHomePageFragment : Fragment() {
-    private var _binding: FragmentHeaderHomePageBinding? = null
+
+class TransactionHeaderFragment : Fragment() {
+    private var _binding: FragmentTransactionHeaderBinding? = null
     private val binding get() = _binding!!
 
     private val sharedPreferencesManager by lazy { SharedPreferencesManager(requireContext()) }
@@ -18,7 +19,7 @@ class HeaderHomePageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHeaderHomePageBinding.inflate(inflater, container, false)
+        _binding = FragmentTransactionHeaderBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -27,17 +28,13 @@ class HeaderHomePageFragment : Fragment() {
         setHeaderData()
     }
 
-    override fun onResume() {
-        super.onResume()
-        setHeaderData() // Actualizar los datos del encabezado cada vez que el fragmento sea visible
-    }
-
     private fun setHeaderData() {
         val user = sharedPreferencesManager.getUser()
-        val getSaldo = sharedPreferencesManager.getSaldo()
         val firstName = user?.firstName ?: "Usuario"
-        binding.saludo.text = "Hola $firstName"
-        binding.saldo.text = "Saldo: $$getSaldo"
+        val lastName = user?.lastName ?: "Usuario"
+        val correo = user?.email ?: "No registrado"
+        binding.nameTextView.text = "$firstName $lastName"
+        binding.mailTextView.text = "$correo"
     }
 
     override fun onDestroyView() {

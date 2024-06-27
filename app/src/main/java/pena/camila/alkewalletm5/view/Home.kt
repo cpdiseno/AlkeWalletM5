@@ -37,7 +37,7 @@ class Home : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       // setupHeaderFragment()
+       setupHeaderFragment()
         setupRecyclerView()
         loadTransactions()
         sharedPreferencesManager = SharedPreferencesManager(requireContext())
@@ -67,7 +67,7 @@ class Home : Fragment() {
         }
 
         binding.buttonEnviarDinero.setOnClickListener {
-            //Si el saldo es 0 se inhabilita el botòn
+            //Si el saldo es > 0 habilita el botòn
 
             if (saldo != null && saldo > 0) {
                 findNavController().navigate(R.id.action_home_to_sendMoney,
@@ -78,15 +78,12 @@ class Home : Fragment() {
             } else {
                 Toast.makeText(
                     requireContext(),
-                    "No tienes saldo en tu cuenta para enviar dinero ",
+                    "No tienes saldo suficiente para enviar dinero ",
                     Toast.LENGTH_SHORT
                 ).show()
             }
 
         }
-//        binding.headerContainerHomePage.profileImg.setOnClickListener {
-//            findNavController().navigate(R.id.action_home_to_profile)
-//        }
 
     }
 
