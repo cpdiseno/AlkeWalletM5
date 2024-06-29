@@ -67,7 +67,8 @@ android {
 
         // Librerías de base de datos ROOM
         implementation(libs.androidx.room.runtime)
-       ksp(libs.androidx.room.compiler)
+        implementation(libs.androidx.media3.common)
+        ksp(libs.androidx.room.compiler)
         implementation(libs.androidx.room.ktx) // Extensiones de Kotlin para Room
 
         // Librerías de Firebase

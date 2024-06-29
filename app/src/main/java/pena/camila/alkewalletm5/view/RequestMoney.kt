@@ -37,16 +37,11 @@ class RequestMoney : Fragment() {
     private val transactionFetcher by lazy {
         TransactionFetcher(transactionRepository)
     }
-    private val transactionViewModel: TransactionViewModel by viewModels { ViewModelFactory(
-        sharedPreferencesManager,
-        transactionFetcher
-    )
+    private val transactionViewModel: TransactionViewModel by viewModels {
+        ViewModelFactory(sharedPreferencesManager, transactionFetcher)
     }
     private val loginViewModel: LoginViewModel by viewModels {
-        ViewModelFactory(
-            sharedPreferencesManager,
-            transactionFetcher
-        )
+        ViewModelFactory(sharedPreferencesManager, transactionFetcher)
     }
 
     override fun onCreateView(
