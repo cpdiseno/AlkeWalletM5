@@ -26,20 +26,41 @@
         android:id="@+id/headerContainerHomePage"
         layout="@layout/fragment_header_home_page" />
 
+
     <Button
         android:id="@+id/button_enviar_dinero"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/jua"
         android:text="@string/enviar_dinero"
+        android:backgroundTint="@color/verde"
+        android:textColor="@color/white"
         app:icon="@drawable/send_icon"
         app:iconGravity="textStart"
         app:iconTint="@color/negro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.446"
-   />
+        app:layout_constraintEnd_toStartOf="@id/button_ingresar_dinero"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+        app:layout_constraintTop_toBottomOf="@id/headerContainerHomePage" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_ingresar_dinero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/jua"
+        android:text="@string/btn_ingresar_dinero"
+        android:backgroundTint="@color/celeste"
+        android:textColor="@color/white"
+        app:icon="@drawable/request_icon"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toEndOf="@id/button_enviar_dinero"
+        app:layout_constraintTop_toBottomOf="@id/headerContainerHomePage" />
 
     <FrameLayout
         android:id="@+id/transactionsContainer"
@@ -50,7 +71,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
         app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
-        >
+        app:layout_constraintTop_toBottomOf="@id/button_ingresar_dinero">
 
         <LinearLayout
             android:id="@+id/noTransactionsView"
@@ -65,48 +86,31 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/no_transactions" />
 
-
         </LinearLayout>
 
     </FrameLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_ingresar_dinero"
-        android:layout_width="165dp"
-        android:layout_height="50dp"
-        android:paddingHorizontal="1dp"
-        android:text="@string/btn_ingresar_dinero"
-        app:icon="@drawable/request_icon"
-        app:iconGravity="textStart"
-        android:fontFamily="@font/jua"
-        app:layout_constraintBottom_toBottomOf="@+id/transactionsContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
-
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="377dp"
-        android:layout_height="22dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:fontFamily="@font/jua"
         android:text="@string/ultimas_transacciones"
         android:textColor="@color/negro"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.525"
-        tools:layout_editor_absoluteX="25dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+        app:layout_constraintTop_toBottomOf="@id/button_ingresar_dinero" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transactionsRecyclerView"
-        android:layout_width="389dp"
-        android:layout_height="275dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:scrollbars="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="405dp" />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+        app:layout_constraintTop_toBottomOf="@id/textView10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

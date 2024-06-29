@@ -58,6 +58,8 @@ class TransactionViewModel(
                     response: Response<DepositOrTransferResponse>
                 ) {
                     if (response.isSuccessful) {
+                        val newBalance = sharedPreferencesManager.getSaldo()?.toLongOrNull() ?: 0 + amount
+                        sharedPreferencesManager.saveAccountData(newBalance.toString(), accountId!!)
                         _transactionResult.value = true
                     } else {
                         _transactionResult.value = false

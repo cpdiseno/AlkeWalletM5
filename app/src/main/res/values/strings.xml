@@ -13,7 +13,6 @@
     <string name="txt_crear_cta">Crear una nueva cuenta</string>
     <string name="content_description_start_icon">Ver</string>
     <string name="alt_logo">logo de la aplicacion</string>
-
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logo_alke_wallet">Logo Alke Wallet</string>
     <string name="registrarse_y_empezar_a_transferir">Registrarse y empezar a transferir</string>
@@ -35,14 +34,14 @@
     <string name="description">Imagen del perfil</string>
     <string name="btn_enviar_dinero">Enviar Dinero</string>
     <string name="btn_ingresar_dinero">Ingresar dinero</string>
-    <string name="ultimas_transacciones">Últimas transacciones</string>
+    <string name="ultimas_transacciones">Ultimas transacciones</string>
     <string name="no_hay_transacciones">¡No hay transacciones registradas!</string>
     <string name="email">usuario@gmail.com</string>
     <string name="cantidad_a_ingresar">Cantidad a ingresar</string>
     <string name="cantidad_a_transferir">Cantidad a transferir</string>
     <string name="cantidad_a_ingresar_monto">20.00</string>
     <string name="notas_de_transferencia">Notas de transferencia</string>
-    <string name="placeholder_notas_de_transferencia">Agregar notas de transferencia(opcional)</string>
+    <string name="placeholder_notas_de_transferencia">Comentarios (opcional)</string>
     <string name="enviar_dinero">Enviar dinero</string>
     <string name="inicial">Y</string>
     <string name="mi">Mi</string>
@@ -57,5 +56,7 @@
     <string name="transaction_amount_with_sign">%1$s</string>
     <string name="login_failed">Error en inicio de sesión</string>
     <string name="no_hay_transacciones_registradas">No hay transacciones registradas</string>
+    <string name="volver">Volver</string>
+    <string name="clic_en_el_logo_para_entrar">Bienvenid@, haz clic en el logo para entrar</string>
 
 </resources>

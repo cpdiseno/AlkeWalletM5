@@ -64,8 +64,13 @@ class RequestMoney : Fragment() {
             transactionViewModel.depositarOtransferir(type, concept, amount)
         }
 
+        binding.volver.setOnClickListener {
+            findNavController().navigateUp() // Navegar hacia atrás en la pila de fragmentos
+        }
+
         observeViewModels()
     }
+
 
     private fun observeViewModels() {
         transactionViewModel.transactionResult.observe(viewLifecycleOwner) { result ->

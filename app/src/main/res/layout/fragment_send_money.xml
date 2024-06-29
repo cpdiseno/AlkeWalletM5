@@ -61,21 +61,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="1dp"
             android:contentDescription="@string/description"
-            android:src="@drawable/profile_vacio"
+            android:src="@drawable/miperfil"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/nombre_destinatario_y"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily=""
-            android:text="@string/inicial"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/profile_destinatario_y" />
+
 
 
         <TextView
