@@ -11,8 +11,8 @@ import pena.camila.alkewalletm5.model.network.DepositOrTransferRequest
 import pena.camila.alkewalletm5.model.network.DepositOrTransferResponse
 import pena.camila.alkewalletm5.utils.SharedPreferencesManager
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Response
+
 
 class TransactionViewModel(
     private val sharedPreferencesManager: SharedPreferencesManager
@@ -35,7 +35,7 @@ class TransactionViewModel(
                     "Bearer $token",
                     accountId,
                     depositRequest
-                ).enqueue(object : Callback<DepositOrTransferResponse> {
+                ).enqueue(object : retrofit2.Callback<DepositOrTransferResponse> {
                     override fun onResponse(
                         call: Call<DepositOrTransferResponse>,
                         response: Response<DepositOrTransferResponse>

@@ -34,9 +34,10 @@ class HeaderHomePageFragment : Fragment() {
 
     private fun setHeaderData() {
         val user = sharedPreferencesManager.getUser()
-        val getSaldo = sharedPreferencesManager.getSaldo()
+        val getSaldo = sharedPreferencesManager.getSaldo()// mensaje de bienvenida nombre usuario
         val firstName = user?.firstName ?: "Usuario"
-        binding.saludo.text = "Hola $firstName"
+        val lastName = user?.lastName ?: "Usuario"
+        binding.saludo.text = "Hola $firstName $lastName"
         binding.saldo.text = "Saldo: $$getSaldo"
     }
 

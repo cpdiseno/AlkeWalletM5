@@ -1,5 +1,7 @@
 package pena.camila.alkewalletm5.model.network
 
+import pena.camila.alkewalletm5.model.database.TransactionEntity
+
 data class AccountResponse(
     val id: Long,
     val creationDate: Any? = null,

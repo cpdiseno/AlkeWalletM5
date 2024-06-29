@@ -4,22 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.launch
 import pena.camila.alkewalletm5.api.ApiClient
 import pena.camila.alkewalletm5.model.database.TransactionEntity
 import pena.camila.alkewalletm5.model.network.AccountResponse
 import pena.camila.alkewalletm5.model.network.CreateAccountResponse
 import pena.camila.alkewalletm5.model.network.LoginRequest
 import pena.camila.alkewalletm5.model.network.LoginResponse
-import pena.camila.alkewalletm5.model.network.LoginService
-import pena.camila.alkewalletm5.model.network.Retrofitinstance
 import pena.camila.alkewalletm5.model.network.User
 import pena.camila.alkewalletm5.utils.SharedPreferencesManager
 import pena.camila.alkewalletm5.utils.TransactionFetcher
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.HttpException
 import retrofit2.Response
 
 class LoginViewModel(
@@ -53,21 +48,17 @@ class LoginViewModel(
                 if (response.isSuccessful) {
                     val token = response.body()?.accessToken
                     if (token != null) {
-                        Log.d("LoginViewModel", "Login successful, token: $token")
                         sharedPreferencesManager.saveAuthToken(token)
                         getUserDetails(token, isSignUp)
                     } else {
-                        Log.d("LoginViewModel", "Login response successful but token is null")
                         _loginResult.value = false
                     }
                 } else {
-                    Log.d("LoginViewModel", "Login response not successful: ${response.errorBody()?.string()}")
                     _loginResult.value = false
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.d("LoginViewModel", "Login request failed: ${t.message}")
                 _loginResult.value = false
             }
         })
@@ -79,7 +70,6 @@ class LoginViewModel(
                 if (response.isSuccessful) {
                     val user = response.body()
                     user?.let {
-                        Log.d("LoginViewModel", "Get user details successful for user: ${it.roleId}")
                         if (isSignUp) {
                             createAccount(token)
                         }
@@ -89,13 +79,11 @@ class LoginViewModel(
                         _userDetails.value = it
                     }
                 } else {
-                    Log.d("LoginViewModel", "Get user details response not successful: ${response.errorBody()?.string()}")
                     _loginResult.value = false
                 }
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-                Log.d("LoginViewModel", "Get user details request failed: ${t.message}")
                 _loginResult.value = false
             }
         })
@@ -109,16 +97,11 @@ class LoginViewModel(
                     response: Response<CreateAccountResponse>
                 ) {
                     if (response.isSuccessful) {
-                        Log.d("LoginViewModel", "Account creation successful")
-                        _createAccountResult.value = true
-                    } else {
-                        Log.d("LoginViewModel", "Account creation response not successful: ${response.errorBody()?.string()}")
-                        _createAccountResult.value = false
+                        _createAccountResult.value
                     }
                 }
 
                 override fun onFailure(call: Call<CreateAccountResponse>, t: Throwable) {
-                    Log.d("LoginViewModel", "Account creation request failed: ${t.message}")
                     _createAccountResult.value = false
                 }
             })
@@ -143,13 +126,11 @@ class LoginViewModel(
                         }
                         fetchTransactions(token)
                     } else {
-                        Log.d("LoginViewModel", "Get user accounts details response not successful: ${response.errorBody()?.string()}")
                         _accountDetailsUpdated.value = false
                     }
                 }
 
                 override fun onFailure(call: Call<List<AccountResponse>>, t: Throwable) {
-                    Log.d("LoginViewModel", "Get user accounts details request failed: ${t.message}")
                     _accountDetailsUpdated.value = false
                 }
             })
@@ -158,13 +139,13 @@ class LoginViewModel(
     private fun fetchTransactions(token: String) {
         transactionFetcher?.fetchTransactions(token) { success, transactionsList ->
             if (success) {
-                Log.d("LoginViewModel", "Transactions fetched successfully: $transactionsList")
+                Log.d("Transactions", "Transactions from login: $transactionsList")
                 transactions.postValue(transactionsList)
                 _loginResult.postValue(true)
             } else {
-                Log.d("LoginViewModel", "Failed to fetch transactions")
                 _loginResult.postValue(false)
             }
         }
     }
+
 }

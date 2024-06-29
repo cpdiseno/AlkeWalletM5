@@ -13,7 +13,6 @@ import pena.camila.alkewalletm5.R
 import pena.camila.alkewalletm5.api.ApiClient
 import pena.camila.alkewalletm5.data.database.AppDatabase
 import pena.camila.alkewalletm5.data.repository.TransactionRepository
-import pena.camila.alkewalletm5.databinding.FragmentProfileBinding
 import pena.camila.alkewalletm5.databinding.FragmentRequestMoneyBinding
 import pena.camila.alkewalletm5.utils.SharedPreferencesManager
 import pena.camila.alkewalletm5.utils.TransactionFetcher
@@ -21,6 +20,86 @@ import pena.camila.alkewalletm5.viewmodel.LoginViewModel
 import pena.camila.alkewalletm5.viewmodel.TransactionViewModel
 import pena.camila.alkewalletm5.viewmodel.ViewModelFactory
 
+
+class RequestMoney : Fragment() {
+    private var _binding: FragmentRequestMoneyBinding? = null
+    private val binding get() = _binding!!
+
+    private val sharedPreferencesManager by lazy { SharedPreferencesManager(requireContext()) }
+    private val appDatabase by lazy {
+        AppDatabase.getDatabase(requireContext())
+    }
+
+    private val transactionRepository by lazy {
+        TransactionRepository(appDatabase.transactionDao(), ApiClient.apiService)
+    }
+
+    private val transactionFetcher by lazy {
+        TransactionFetcher(transactionRepository)
+    }
+    private val transactionViewModel: TransactionViewModel by viewModels { ViewModelFactory(
+        sharedPreferencesManager,
+        transactionFetcher
+    )
+    }
+    private val loginViewModel: LoginViewModel by viewModels {
+        ViewModelFactory(
+            sharedPreferencesManager,
+            transactionFetcher
+        )
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentRequestMoneyBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupHeaderFragment()
+
+        binding.ingresarBtn.setOnClickListener {
+            val type = "topup"
+            val concept = binding.conceptoIngreso.text.toString()
+            val amount = binding.montoIngreso.text.toString().toLong()
+
+            transactionViewModel.depositarOtransferir(type, concept, amount)
+        }
+
+        observeViewModels()
+    }
+
+    private fun observeViewModels() {
+        transactionViewModel.transactionResult.observe(viewLifecycleOwner) { result ->
+            if (result) {
+                Toast.makeText(context, "Depósito realizado correctamente", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_requestMoney_to_home)
+            } else {
+                transactionViewModel.errorMessage.observe(viewLifecycleOwner, Observer { errorMessage ->
+                    Toast.makeText(context, "Error en el depósito: $errorMessage", Toast.LENGTH_SHORT).show()
+                })
+            }
+        }
+    }
+
+    private fun setupHeaderFragment() {
+        val fragment = TransactionHeaderFragment()
+        childFragmentManager.beginTransaction()
+            .replace(R.id.user_container, fragment)
+            .commit()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
+
+
+/*
 class RequestMoney : Fragment() {
         private var _binding: FragmentRequestMoneyBinding? = null
         private val binding get() = _binding!!
@@ -110,4 +189,4 @@ class RequestMoney : Fragment() {
             super.onDestroyView()
             _binding = null
         }
-    }
+    }*/

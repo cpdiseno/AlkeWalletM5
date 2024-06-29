@@ -10,5 +10,5 @@ data class User(
     val email: String,
     val password: String,
     val roleId: Int = 1,
-    val points: Int = 1000
+    val points: Int = 5000
 )

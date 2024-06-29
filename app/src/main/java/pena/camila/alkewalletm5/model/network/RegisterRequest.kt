@@ -1,11 +1,15 @@
 package pena.camila.alkewalletm5.model.network
 
-class RegisterRequest (
+import com.google.gson.annotations.SerializedName
 
-    val first_name: String,
-    val last_name: String,
+data class RegisterRequest (
+
+    @SerializedName("first_name")
+    val firstName: String,
+    @SerializedName("last_name")
+    val lastName: String,
     val email: String,
     val password: String,
-    val roleId: Long,
-    val points: Long
+    val roleId: Int,
+    val points: Int
 )
